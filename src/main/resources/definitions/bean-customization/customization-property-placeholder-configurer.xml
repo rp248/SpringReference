@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.spring.ioc.SpringIoc.extensions.IoCExtensionPropertyPlaceholderConfigurer">
+        <property name="locations" value="classpath:properties/payment_gateway.properties"/>
+    </bean>
+
+    <bean id="xmlCashPayment"
+          class="com.spring.ioc.SpringIoc.xmlconfig.beans.bean.customization.XmlCashPayment">
+        <property name="url" value="${url}"/>
+        <property name="version" value="${version}"/>
+    </bean>
+
+</beans>

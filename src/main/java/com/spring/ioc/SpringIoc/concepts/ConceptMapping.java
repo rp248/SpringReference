@@ -25,6 +25,7 @@ public class ConceptMapping {
 
     public static final String CUSTOMIZATION_BEAN_POST_PROCESSOR_DEFINITION = "extension_bean_post_processor_bean_definition";
     public static final String CUSTOMIZATION_BEAN_FACTORY_POST_PROCESSOR_DEFINITION = "extension_bean_factory_post_processor_bean_definition";
+    public static final String CUSTOMIZATION_PROPERTY_PLACEHOLDER_CONFIGURER_DEFINITION = "extenstion_property_placeholder_configurer_bean_definition";
 
 
     public ConceptMapping() {
@@ -60,6 +61,9 @@ public class ConceptMapping {
                 "definitions/bean-customization/customization-bean-post-processor.xml");
         definitions.put(CUSTOMIZATION_BEAN_FACTORY_POST_PROCESSOR_DEFINITION,
                 "definitions/bean-customization/customization-bean-factory-post-processor.xml");
+        definitions.put(CUSTOMIZATION_PROPERTY_PLACEHOLDER_CONFIGURER_DEFINITION,
+                "definitions/bean-customization/customization-property-placeholder-configurer.xml");
+
     }
 
     public String getBeanMetaDataForConcept(String conceptName) {

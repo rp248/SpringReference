@@ -5,6 +5,7 @@ import com.spring.ioc.SpringIoc.concepts.ioc.aware.interfaces.ApplicationAwareBe
 import com.spring.ioc.SpringIoc.concepts.ioc.aware.interfaces.BeanAwareBeanDefinition;
 import com.spring.ioc.SpringIoc.concepts.ioc.bean.customization.CustomizationBeanFactoryPostProcessor;
 import com.spring.ioc.SpringIoc.concepts.ioc.bean.customization.CustomizationBeanPostProcessor;
+import com.spring.ioc.SpringIoc.concepts.ioc.bean.customization.CustomizationPropertyPlaceholderConfigurer;
 import com.spring.ioc.SpringIoc.concepts.ioc.bean.inheritance.BeanInheritanceDefinition;
 import com.spring.ioc.SpringIoc.concepts.ioc.lifecyle.StartStopCallbacksDefinition;
 
@@ -58,6 +59,8 @@ public class ConceptFactory {
              concept = new CustomizationBeanPostProcessor(definitionPath);
          else if (ConceptMapping.CUSTOMIZATION_BEAN_FACTORY_POST_PROCESSOR_DEFINITION.equals(conceptName))
              concept = new CustomizationBeanFactoryPostProcessor(definitionPath);
+         else if (ConceptMapping.CUSTOMIZATION_PROPERTY_PLACEHOLDER_CONFIGURER_DEFINITION.equals(conceptName))
+             concept = new CustomizationPropertyPlaceholderConfigurer(definitionPath);
 
          return concept;
     }

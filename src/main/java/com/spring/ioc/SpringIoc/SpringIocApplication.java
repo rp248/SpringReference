@@ -26,7 +26,8 @@ public class SpringIocApplication {
         //Concept concept = ConceptFactory.getInstance().makeConcept(ConceptMapping.BEAN_AWARE_BEAN_DEFINITION);
         //Concept concept = ConceptFactory.getInstance().makeConcept(ConceptMapping.INHERITANCE_BEAN_DEFINITION);
         //Concept concept = ConceptFactory.getInstance().makeConcept(ConceptMapping.CUSTOMIZATION_BEAN_POST_PROCESSOR_DEFINITION);
-        Concept concept = ConceptFactory.getInstance().makeConcept(ConceptMapping.CUSTOMIZATION_BEAN_FACTORY_POST_PROCESSOR_DEFINITION);
-		concept.display();
-	}
+        //Concept concept = ConceptFactory.getInstance().makeConcept(ConceptMapping.CUSTOMIZATION_BEAN_FACTORY_POST_PROCESSOR_DEFINITION);
+        Concept concept = ConceptFactory.getInstance().makeConcept(ConceptMapping.CUSTOMIZATION_PROPERTY_PLACEHOLDER_CONFIGURER_DEFINITION);
+        concept.display();
+    }
 }
