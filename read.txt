@@ -1,0 +1,6 @@
+Inner beans ?
+arrays and typed-collections?
+7.5.4 Request, session, global session, application, and WebSocket scopes?
+7.5.5 Custom scopes?
+Example: The RequiredAnnotationBeanPostProcessor?
+
