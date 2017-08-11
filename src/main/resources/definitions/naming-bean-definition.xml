@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="xmlEmployee" class="com.spring.ioc.SpringIoc.xmlconfig.beans.XmlEmployee"/>
+    <bean id="xmlOrganisation"  name="xmlOrg, Organisation, Org" class="com.spring.ioc.SpringIoc.xmlconfig.beans.XmlOrganisation"/>
+
+</beans>
+
+<!--
+Every bean has one mor more(aliases) identifiers. A bean has only one identifier, but can have more than one
+alias names.
+XML-based configuration meta-data uses id or name attribute to define a identifier for the bean.
+-->

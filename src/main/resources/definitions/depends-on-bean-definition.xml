@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--using depends-on attribute we can inform Sprint Ioc container to create dependent bean first
+     then the required bean-->
+    <bean id="xmlEmployee" class="com.spring.ioc.SpringIoc.xmlconfig.beans.XmlEmployee"
+     depends-on="xmlOrganisation,xmlAddress"/>
+    <bean id="xmlOrganisation" class="com.spring.ioc.SpringIoc.xmlconfig.beans.XmlOrganisation"/>
+    <bean id="xmlAddress" class="com.spring.ioc.SpringIoc.xmlconfig.beans.XmlAddress"/>
+
+</beans>

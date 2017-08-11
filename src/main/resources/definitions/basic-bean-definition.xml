@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="xmlEmployee" class="com.spring.ioc.SpringIoc.xmlconfig.beans.XmlEmployee"/>
+    <bean id="xmlOrganisation" class="com.spring.ioc.SpringIoc.xmlconfig.beans.XmlOrganisation"/>
+    <bean id="xmlAddress" class="com.spring.ioc.SpringIoc.xmlconfig.beans.XmlAddress"/>
+
+</beans>
+
+<!--
+id attribute of bean element is used to register a bean in Spring Ioc. We can retrieve a bean
+by using its id or its Class name from the Spring Ioc.
+
+Default Scope for bean element is singleton.
+
+<bean> element is converted into BeanDefinition object and is maintained by Spring
+Ioc(ApplicationContext).
+
+Refer : BasicBeanDefinition.Java
+-->

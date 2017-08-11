@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Auto-wiring dependencies using setter DI and auto-wire mode type "byName" -->
+
+    <bean id="xmlEmployee" class="com.spring.ioc.SpringIoc.xmlconfig.beans.XmlEmployee"
+        autowire="byName"/>
+    <bean id="xmlOrganisation" class="com.spring.ioc.SpringIoc.xmlconfig.beans.XmlOrganisation"/>
+    <bean id="xmlAddress" class="com.spring.ioc.SpringIoc.xmlconfig.beans.XmlAddress"/>
+
+    <!--Auto-wiring dependencies using constructor DI-->
+    <bean id="relationCreator" class="com.spring.ioc.SpringIoc.xmlconfig.beans.RelationCreator"
+        autowire="constructor"/>
+
+    <!--Auto-wiring dependencies using setter DI and auto-wire mode type "byType" -->
+    <bean id="xmlAddressEditor" class="com.spring.ioc.SpringIoc.xmlconfig.beans.XmlAddressEditor"
+        autowire="byType"/>
+
+</beans>
+
+<!--
+Setter Auto-wiring
+All beans are loaded by Spring Ioc container then auto-wired the required bean dependencies.
+1. XmlEmployee bean created.
+2. XmlOrganisation bean created.
+3. XmlAddress bean created.
+4. XmlEmployee bean's setXmlOrganisation, setXmlAddress methods will be
+   called with appropriate arguments. Spring Ioc container will determine which setter to be
+   called using property names(byName) of XmlEmployee bean.
+
+Constructor Auto-wiring
+All beans are loaded by Spring Ioc container except the bean which uses constructor auto-wiring
+1. XmlEmployee bean created.
+2. XmlOrganisation bean created.
+3. XmlAddress bean created.
+4. Spring Ioc container will call RelationCreator beans's constructor with appropriate args
+   to instantiate the bean(new RelationCreator(xmlEmployee instance, xmlOrganisation instance).
+
+We can also auto-wire arrays and typed-collections. To auto-wire arrays and typed-collections
+we must define them as beans in Spring Ioc container.
+
+Refer: 7.4.2 Dependencies and configuration in detail - Collections
+-->

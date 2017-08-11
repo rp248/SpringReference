@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="xmlGame"
+          class="com.spring.ioc.SpringIoc.xmlconfig.beans.bean.customization.XmlGame">
+        <property name="name" value="Cricket"/>
+        <property name="type" value="out-door"/>
+    </bean>
+
+    <bean id="ioCExtensionBeanFactoryPostProcessor"
+          class="com.spring.ioc.SpringIoc.extensions.IocExtensionBeanFactoryPostProcessor"/>
+
+</beans>
+
+
+<!--
+We can control the execution order of BeanFactoryPostProcessor(s) by implementing Order interface
+and returning the order in integer.
+
+Spring reference:
+BeanFactoryPostProcessor operates on the bean configuration metadata; that is, the Spring IoC container
+allows a BeanFactoryPostProcessor to read the configuration metadata and potentially change it before
+the container instantiates any beans other than BeanFactoryPostProcessors.
+
+If you want to change the actual bean instances (i.e., the objects that are created from the configuration metadata),
+then you instead need to use a BeanPostProcessor
+
+-->

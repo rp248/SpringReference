@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="xmlEmployee" class="com.spring.ioc.SpringIoc.xmlconfig.beans.XmlEmployee"/>
+    <bean id="xmlOrganisation" class="com.spring.ioc.SpringIoc.xmlconfig.beans.XmlOrganisation"/>
+    <bean id="xmlAddress" class="com.spring.ioc.SpringIoc.xmlconfig.beans.XmlAddress"/>
+
+    <!--Constructor dependency injection-->
+    <bean id="relationCreator" class="com.spring.ioc.SpringIoc.xmlconfig.beans.RelationCreator">
+        <constructor-arg ref="xmlEmployee"/>
+        <constructor-arg ref="xmlOrganisation"/>
+    </bean>
+
+    <!--Spring Ioc container automatically convert string value into their appropriate type; here
+     Spring Ioc container will convert String "21" into integer 21 and inject into bean's constructor -->
+    <bean id="xmlEmployeeEditor" class="com.spring.ioc.SpringIoc.xmlconfig.beans.XmlEmployeeEditor">
+        <constructor-arg value="21"/>
+        <constructor-arg ref="xmlEmployee"/>
+    </bean>
+
+    <!--Setter dependency injection-->
+    <bean id="xmlAddressEditor" class="com.spring.ioc.SpringIoc.xmlconfig.beans.XmlAddressEditor">
+        <property name="xmlAddress" ref="xmlAddress"/>
+        <property name="line1" value="Anand silicon chip"/>
+    </bean>
+
+    <!--Dependency injection for factory methods-->
+    <bean id="xmlOrganisationCreator" class="com.spring.ioc.SpringIoc.xmlconfig.beans.XmlOrganisationCreator"/>
+    <bean id="xmlOrg" class="com.spring.ioc.SpringIoc.xmlconfig.beans.XmlOrganisation"
+          factory-bean="xmlOrganisationCreator" factory-method="createXmlOrganisation">
+        <constructor-arg ref="xmlAddress"/>
+        <constructor-arg value="Primesoft IP Solutions Pvt Ltd."/>
+    </bean>
+
+</beans>

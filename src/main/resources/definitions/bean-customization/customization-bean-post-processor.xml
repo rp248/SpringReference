@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="xmlGame"
+          class="com.spring.ioc.SpringIoc.xmlconfig.beans.bean.customization.XmlGame">
+        <property name="name" value="Cricket"/>
+        <property name="type" value="out-door"/>
+    </bean>
+
+    <bean id="ioCExtensionBeanPostProcessor"
+          class="com.spring.ioc.SpringIoc.extensions.IoCExtensionBeanPostProcessor"/>
+    <bean id="ioCExtensionAnotherBeanPostProcessor"
+          class="com.spring.ioc.SpringIoc.extensions.IoCExtensionAnotherBeanPostProcessor"/>
+
+</beans>
+
+
+<!--
+We can control the execution order of BeanPostProcessor(s) by implementing Order interface
+and returning the order in integer.
+
+Refer:IoCExtensionAnotherBeanPostProcessor.java, IoCExtensionBeanPostProcessor.java
+
+Spring reference:
+
+The BeanPostProcessor interface defines callback methods that you can implement to
+provide your own (or override the container’s default) instantiation logic, dependency-resolution logic,
+and so forth. If you want to implement some custom logic after the Spring container finishes instantiating,
+configuring, and initializing a bean, you can plug in one or more BeanPostProcessor implementations.
+
+If you want to change the actual bean instances (i.e., the objects that are created from the configuration metadata),
+then you instead need to use a BeanPostProcessor
+
+By default all BeanPostProcessors are registered in a sorted fashion and applied to all further beans in the container.
+
+Note that if you have beans wired into your BeanPostProcessor using autowiring or
+@Resource (which may fall back to autowiring), Spring might access unexpected beans when searching for
+type-matching dependency candidates, and therefore make them ineligible for auto-proxying or other kinds of bean
+post-processing. For example, if you have a dependency annotated with @Resource where the field/setter name
+does not directly correspond to the declared name of a bean and no name attribute is used, then Spring will access other
+beans for matching them by type.
+
+BeanPostProcessors operate on bean (or object) instances; that is to say, the Spring IoC container
+instantiates a bean instance and then BeanPostProcessors do their work.
+-->

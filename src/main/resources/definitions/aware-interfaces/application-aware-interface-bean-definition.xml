@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="xmlPayment" class="com.spring.ioc.SpringIoc.xmlconfig.beans.aware.interfaces.XmlPayment"/>
+    <bean id="xmlGatewayInfo" class="com.spring.ioc.SpringIoc.xmlconfig.beans.aware.interfaces.XmlGatewayInfo"/>
+
+</beans>
+
+<!--
+As of Spring 2.5(@Autowired annotation), auto-wiring is another alternative
+to obtain reference to the ApplicationContext.
+Note: Aware interfaces ties the app code with Spring IoC container API and
+does not follow the Inversion of Control style. Use Aware interfaces if we require
+programmatic access to the Spring IoC container API.
+-->

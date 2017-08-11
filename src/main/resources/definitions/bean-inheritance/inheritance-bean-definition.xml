@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+    Spring IoC container will not create a bean object, but uses as parent for child beans. Spring IoC container does not
+    host this bean and we can't retrieve this bean object using getBean("identifier").
+    <bean id="xmlCustomer" class="com.spring.ioc.SpringIoc.xmlconfig.beans.bean.inheritance.XmlCustomer" abstract="true">
+        <property name="rating" value="5"/>
+    </bean>-->
+
+    <bean id="xmlCustomer" class="com.spring.ioc.SpringIoc.xmlconfig.beans.bean.inheritance.XmlCustomer" abstract="true">
+        <property name="rating" value="5"/>
+    </bean>
+
+    <bean id="xmlMobileCustomer" class="com.spring.ioc.SpringIoc.xmlconfig.beans.bean.inheritance.XmlCustomer"
+        parent="xmlCustomer">
+        <property name="id" value="1234"/>
+        <property name="name" value="mobile_xyz"/>
+        <property name="email" value="mobile_xyz@ioc.com"/>
+    </bean>
+
+    <bean id="xmlTvCustomer" class="com.spring.ioc.SpringIoc.xmlconfig.beans.bean.inheritance.XmlCustomer"
+          parent="xmlCustomer">
+        <property name="id" value="5678"/>
+        <property name="name" value="tv_abc"/>
+        <property name="email" value="tv_abc@ioc.com"/>
+    </bean>
+
+</beans>
+
+
+<!--Not exactly as Java inheritance but it inherits bean definition; Spring IoC creates
+ChildBeanDefinition object and inherits from ParentBeanDefinition(Does not create child objects,
+Spring IoC container will create multiple bean objects by inheriting parentBeanDefinition properties
+and overrides ParentBeanDefinition properties in ChildBeanDefinition).
+
+ChildBeanDefinition can override properties, scope, init-method, destroy-method, and/or static factory method that we specify in
+ParentBeanDefinition.
+
+Spring IoC container does not override depends on, auto-wire mode, dependency check, singleton, lazy init.
+
+By using abstract attribute in parent bean, we can inform Spring IoC container not to create a bean object and just use it
+for child beans.
+
+If we does not specify class attribute for parent bean then we should define abstract attribute=true(otherwise IoC container
+will throw an exception).
+We can't use abstract=true parent bean as ref to other bean, using IoC container will throw an exception.
+
+Spring reference:
+ApplicationContext pre-instantiates all singletons by default. Therefore, it is important (at least for singleton beans)
+that if you have a (parent) bean definition which you intend to use only as a template, and this definition specifies
+a class, you must make sure to set the abstract attribute to true, otherwise the application context will actually
+(attempt to) pre-instantiate the abstract bean.
+
+-->
