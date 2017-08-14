@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config></context:annotation-config>
+
+    <bean id="annotationOrganisation" class="com.spring.ioc.SpringIoc.annotationconfig.beans.AnnotationOrganisation"/>
+    <!--If we comment below line Spring IoC container will throw exception, because AnnotationOrganisation.java has
+    dependency on AnnotationAddress and Spring IoC container unable to find this bean to auto-wire into
+    AnnotationOrganisation bean-->
+    <bean id="annotationAddress" class="com.spring.ioc.SpringIoc.annotationconfig.beans.AnnotationAddress"/>
+
+    <bean id="annotationGateway" class="com.spring.ioc.SpringIoc.annotationconfig.beans.AnnotationGateway"/>
+    <bean id="annotationPayment" class="com.spring.ioc.SpringIoc.annotationconfig.beans.AnnotationPayment"/>
+
+    <bean id="annotationGame" class="com.spring.ioc.SpringIoc.annotationconfig.beans.AnnotationGame"/>
+    <bean id="annotationPlayer1" class="com.spring.ioc.SpringIoc.annotationconfig.beans.AnnotationPlayer"/>
+    <bean id="annotationPlayer2" class="com.spring.ioc.SpringIoc.annotationconfig.beans.AnnotationPlayer"/>
+    <bean id="annotationPlayer3" class="com.spring.ioc.SpringIoc.annotationconfig.beans.AnnotationPlayer"/>
+
+</beans>
+
+<!--
+Auto-wire annotated fields injected by Spring IoC container. If Spring IoC container unable to find
+the specified auto-wired annotated bean type, it will throw exception.
+
+Using auto-wire annotation we don't need to specify property dependencies in the bean definition.
+
+@Autowire annotation can be used at field, constructor, method level.
+
+Spring reference:
+As of Spring Framework 4.3, the @Autowired constructor is no longer necessary
+if the target bean only defines one constructor. If several constructors are available,
+at least one must be annotated to teach the container which one it has to use.
+
+Refer: AnnotationPayment.java
+
+By default, the autowiring fails whenever zero candidate beans are available; the default behavior
+is to treat annotated methods, constructors, and fields as indicating required dependencies.
+This behavior can be changed as demonstrated below.
+
+   @Autowired(required=false)
+    public void setMovieFinder(MovieFinder movieFinder) {
+        this.movieFinder = movieFinder;
+    }
+-->

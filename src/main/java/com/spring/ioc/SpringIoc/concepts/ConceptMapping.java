@@ -26,6 +26,11 @@ public class ConceptMapping {
     public static final String CUSTOMIZATION_BEAN_POST_PROCESSOR_DEFINITION = "extension_bean_post_processor_bean_definition";
     public static final String CUSTOMIZATION_BEAN_FACTORY_POST_PROCESSOR_DEFINITION = "extension_bean_factory_post_processor_bean_definition";
     public static final String CUSTOMIZATION_PROPERTY_PLACEHOLDER_CONFIGURER_DEFINITION = "extenstion_property_placeholder_configurer_bean_definition";
+    public static final String CUSTOMIZATION_PROPERTY_OVERRIDE_CONFIGURER_DEFINITION = "extenstion_property_override_configurer_bean_definition";
+    public static final String CUSTOMIZATION_FACTORY_BEAN_DEFINITION = "extenstion_factory_bean_definition";
+
+    public static final String REQUIRED_ANNOTATION = "required_annotation";
+    public static final String AUTO_WIRE_ANNOTATION = "auto_wired_annotation";
 
 
     public ConceptMapping() {
@@ -63,6 +68,14 @@ public class ConceptMapping {
                 "definitions/bean-customization/customization-bean-factory-post-processor.xml");
         definitions.put(CUSTOMIZATION_PROPERTY_PLACEHOLDER_CONFIGURER_DEFINITION,
                 "definitions/bean-customization/customization-property-placeholder-configurer.xml");
+        definitions.put(CUSTOMIZATION_PROPERTY_OVERRIDE_CONFIGURER_DEFINITION,
+                "definitions/bean-customization/customization-property-override-configurer.xml");
+        definitions.put(CUSTOMIZATION_FACTORY_BEAN_DEFINITION,
+                "definitions/bean-customization/customization-factory-bean-definition.xml");
+        definitions.put(REQUIRED_ANNOTATION,
+                "definitions/annotation-config/required-annotation-definition.xml");
+        definitions.put(AUTO_WIRE_ANNOTATION,
+                "definitions/annotation-config/auto-wire-annotation-definition.xml");
 
     }
 

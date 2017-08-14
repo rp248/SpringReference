@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config></context:annotation-config>
+
+    <bean id="annotationCustomer" class="com.spring.ioc.SpringIoc.annotationconfig.beans.AnnotationCustomer">
+        <!--if we comment below line Spring IoC container will throw exception; because
+        we define this property as required but that is not defined in bean definition-->
+        <property name="annotationOrganisation" ref="annotationOrganisation"/>
+    </bean>
+    <bean id="annotationOrganisation" class="com.spring.ioc.SpringIoc.annotationconfig.beans.AnnotationOrganisation"/>
+    <bean id="annotationAddress" class="com.spring.ioc.SpringIoc.annotationconfig.beans.AnnotationAddress"/>
+</beans>
+
+<!--
+ @Required annotation can be enabled in two ways.
+ 1. <context:annotation-config></context:annotation-config>
+ 2. By declaring a bean definition for RequiredAnnotationBeanPostProcessor.java
+    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+
+ If we add @Required annotation on a bean's setter method, we must declare that property in that bean
+ definition otherwise Spring IoC container will throw an exception with following message
+ Property 'annotationOrganisation' is required for bean 'annotationCustomer'
+
+ @Required means that property must be injected. To make a property injectable we must define the
+ property in that bean definition.
+
+ Spring reference:
+ This annotation simply indicates that the affected bean property must be populated at
+ configuration time, through an explicit property value in a bean definition or through
+ auto-wiring. The container throws an exception if the affected bean property has not been
+ populated; this allows for eager and explicit failure, avoiding NullPointerExceptions or the
+ like later on. It is still recommended that you put assertions into the bean class itself, for
+ example, into an init method. Doing so enforces those required references and values even when
+ you use the class outside of a container.
+-->

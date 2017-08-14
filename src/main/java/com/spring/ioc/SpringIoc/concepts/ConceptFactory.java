@@ -1,11 +1,11 @@
 package com.spring.ioc.SpringIoc.concepts;
 
 import com.spring.ioc.SpringIoc.concepts.ioc.*;
+import com.spring.ioc.SpringIoc.concepts.ioc.annotationconfig.AutowiredAnnotation;
+import com.spring.ioc.SpringIoc.concepts.ioc.annotationconfig.RequiredAnnotation;
 import com.spring.ioc.SpringIoc.concepts.ioc.aware.interfaces.ApplicationAwareBeanDefinition;
 import com.spring.ioc.SpringIoc.concepts.ioc.aware.interfaces.BeanAwareBeanDefinition;
-import com.spring.ioc.SpringIoc.concepts.ioc.bean.customization.CustomizationBeanFactoryPostProcessor;
-import com.spring.ioc.SpringIoc.concepts.ioc.bean.customization.CustomizationBeanPostProcessor;
-import com.spring.ioc.SpringIoc.concepts.ioc.bean.customization.CustomizationPropertyPlaceholderConfigurer;
+import com.spring.ioc.SpringIoc.concepts.ioc.bean.customization.*;
 import com.spring.ioc.SpringIoc.concepts.ioc.bean.inheritance.BeanInheritanceDefinition;
 import com.spring.ioc.SpringIoc.concepts.ioc.lifecyle.StartStopCallbacksDefinition;
 
@@ -61,6 +61,14 @@ public class ConceptFactory {
              concept = new CustomizationBeanFactoryPostProcessor(definitionPath);
          else if (ConceptMapping.CUSTOMIZATION_PROPERTY_PLACEHOLDER_CONFIGURER_DEFINITION.equals(conceptName))
              concept = new CustomizationPropertyPlaceholderConfigurer(definitionPath);
+         else if (ConceptMapping.CUSTOMIZATION_PROPERTY_OVERRIDE_CONFIGURER_DEFINITION.equals(conceptName))
+             concept = new CustomizationBeanPropertyOverrideConfigurer(definitionPath);
+         else if (ConceptMapping.CUSTOMIZATION_FACTORY_BEAN_DEFINITION.equals(conceptName))
+             concept = new CustomizationFactoryBeanDefinition(definitionPath);
+         else if (ConceptMapping.REQUIRED_ANNOTATION.equals(conceptName))
+             concept = new RequiredAnnotation(definitionPath);
+         else if (ConceptMapping.AUTO_WIRE_ANNOTATION.equals(conceptName))
+             concept = new AutowiredAnnotation(definitionPath);
 
          return concept;
     }

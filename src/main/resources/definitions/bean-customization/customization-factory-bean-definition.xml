@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="xmlGameFactory" class="com.spring.ioc.SpringIoc.extensions.IoCExtensionFactoryBean"/>
+
+    <bean id="xmlPlayGround" class="com.spring.ioc.SpringIoc.xmlconfig.beans.bean.customization.XmlPlayGround" scope="prototype">
+        <property name="xmlGame" ref="xmlGameFactory"/>
+    </bean>
+</beans>
+
+<!--
+Spring reference:
+When you need to ask a container for an actual FactoryBean instance itself instead of the bean it produces,
+preface the bean’s id with the ampersand symbol ( &) when calling the getBean() method of the ApplicationContext.
+So for a given FactoryBean with an id of myBean, invoking getBean("xmlGameFactory") on the container returns
+the product(XmlGame) of the FactoryBean; whereas, invoking getBean("&xmlGameFactory") returns the FactoryBean instance itself.
+-->
