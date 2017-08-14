@@ -44,7 +44,7 @@ By default, the autowiring fails whenever zero candidate beans are available; th
 is to treat annotated methods, constructors, and fields as indicating required dependencies.
 This behavior can be changed as demonstrated below.
 
-   @Autowired(required=false)
+    @Autowired(required=false)
     public void setMovieFinder(MovieFinder movieFinder) {
         this.movieFinder = movieFinder;
     }
