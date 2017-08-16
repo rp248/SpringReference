@@ -34,7 +34,8 @@ Using auto-wire annotation we don't need to specify property dependencies in the
 @Autowire annotation can be used at field, constructor, method level.
 
 By default @Autowire annotation uses property type to resolve and inject. If we specify @Qualifier
-annotation @Autowire annotation will use the @Qualifier value to resolve the bean and inject.
+annotation @Autowire annotation will use the @Qualifier value to resolve the bean's name/identifier
+or qualifier attribute value and inject.
 
 Spring reference:
 As of Spring Framework 4.3, the @Autowired constructor is no longer necessary
