@@ -33,6 +33,9 @@ Using auto-wire annotation we don't need to specify property dependencies in the
 
 @Autowire annotation can be used at field, constructor, method level.
 
+By default @Autowire annotation uses property type to resolve and inject. If we specify @Qualifier
+annotation @Autowire annotation will use the @Qualifier value to resolve the bean and inject.
+
 Spring reference:
 As of Spring Framework 4.3, the @Autowired constructor is no longer necessary
 if the target bean only defines one constructor. If several constructors are available,
@@ -48,4 +51,23 @@ This behavior can be changed as demonstrated below.
     public void setMovieFinder(MovieFinder movieFinder) {
         this.movieFinder = movieFinder;
     }
+
+Note:
+If you intend to express annotation-driven injection by name, do not primarily use
+@Autowired, even if is technically capable of referring to a bean name through @Qualifier
+values. Instead, use the JSR-250 @Resource annotation.
+
+@Autowire resolves candidate beans by type, the specified String qualifier value will be
+considered within those type-selected candidates only, e.g. matching an "account" qualifier
+against beans marked with the same qualifier label.
+
+Stackoverflow:
+Both @Autowired (or @Inject) and @Resource work equally well. But there is a conceptual
+difference or a difference in the meaning
+
+    @Resource means get me a known resource by name. The name is extracted from the name
+    of the annotated setter or field, or it is taken from the name-Parameter.
+
+    @Inject or @Autowired try to wire in a suitable other component by type.
+
 -->

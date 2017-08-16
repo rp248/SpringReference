@@ -1,10 +1,7 @@
 package com.spring.ioc.SpringIoc.concepts;
 
 import com.spring.ioc.SpringIoc.concepts.ioc.*;
-import com.spring.ioc.SpringIoc.concepts.ioc.annotationconfig.AutowiredAnnotation;
-import com.spring.ioc.SpringIoc.concepts.ioc.annotationconfig.PrimaryAnnotation;
-import com.spring.ioc.SpringIoc.concepts.ioc.annotationconfig.QualifierAnnotation;
-import com.spring.ioc.SpringIoc.concepts.ioc.annotationconfig.RequiredAnnotation;
+import com.spring.ioc.SpringIoc.concepts.ioc.annotationconfig.*;
 import com.spring.ioc.SpringIoc.concepts.ioc.aware.interfaces.ApplicationAwareBeanDefinition;
 import com.spring.ioc.SpringIoc.concepts.ioc.aware.interfaces.BeanAwareBeanDefinition;
 import com.spring.ioc.SpringIoc.concepts.ioc.bean.customization.*;
@@ -75,6 +72,10 @@ public class ConceptFactory {
              concept = new PrimaryAnnotation(definitionPath);
          else if (ConceptMapping.QUALIFIER_AUTO_WIRE_ANNOTATION.equals(conceptName))
              concept = new QualifierAnnotation(definitionPath);
+         else if (ConceptMapping.CUSTOM_QUALIFIER_ANNOTATION.equals(conceptName))
+             concept = new CustomQualifierAnnotation(definitionPath);
+         else if (ConceptMapping.RESOURCE_ANNOTATION.equals(conceptName))
+             concept = new ResourceAnnotation(definitionPath);
 
          return concept;
     }

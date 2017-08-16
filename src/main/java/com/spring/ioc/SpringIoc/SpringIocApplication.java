@@ -33,7 +33,9 @@ public class SpringIocApplication {
         //Concept concept = ConceptFactory.getInstance().makeConcept(ConceptMapping.REQUIRED_ANNOTATION);
         //Concept concept = ConceptFactory.getInstance().makeConcept(ConceptMapping.AUTO_WIRE_ANNOTATION);
         //Concept concept = ConceptFactory.getInstance().makeConcept(ConceptMapping.PRIMARY_AUTO_WIRE_ANNOTATION);
-        Concept concept = ConceptFactory.getInstance().makeConcept(ConceptMapping.QUALIFIER_AUTO_WIRE_ANNOTATION);
+        //Concept concept = ConceptFactory.getInstance().makeConcept(ConceptMapping.QUALIFIER_AUTO_WIRE_ANNOTATION);
+        //Concept concept = ConceptFactory.getInstance().makeConcept(ConceptMapping.CUSTOM_QUALIFIER_ANNOTATION);
+        Concept concept = ConceptFactory.getInstance().makeConcept(ConceptMapping.RESOURCE_ANNOTATION);
         concept.display();
     }
 }
