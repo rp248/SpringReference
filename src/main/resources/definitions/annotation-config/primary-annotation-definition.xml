@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config></context:annotation-config>
+
+    <bean id="javaLanguage" class="com.spring.ioc.SpringIoc.annotationconfig.beans.JavaLanguage"
+        primary="true"/>
+    <bean id="kotlinLanguage" class="com.spring.ioc.SpringIoc.annotationconfig.beans.KotlinLanguage"/>
+    <bean id="pythonLanguage" class="com.spring.ioc.SpringIoc.annotationconfig.beans.PythonLanguage"/>
+
+    <bean class="com.spring.ioc.SpringIoc.annotationconfig.beans.TopRankLanguage"/>
+</beans>
+
+<!--
+TopRankLanguage.getLanguage() will return JavaLanguage object instance.
+If we don't specify primary attribute of the bean element and spring IoC container finds more than one bean type(similar
+types;here Language type) will throw an exception.
+
+Spring reference:
+
+@Primary is an effective way to use autowiring by type with several instances when one primary candidate can be determined.
+
+Autowiring by type may lead to multiple candidates, it is often necessary to have more control over the
+selection process. One way to accomplish this is with Spring’s @Primary annotation. @Primary indicates that a
+particular bean should be given preference when multiple beans are candidates to be autowired to a single-valued
+dependency. If exactly one 'primary' bean exists among the candidates, it will be the autowired value.
+-->

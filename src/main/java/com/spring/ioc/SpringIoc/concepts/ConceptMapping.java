@@ -31,6 +31,8 @@ public class ConceptMapping {
 
     public static final String REQUIRED_ANNOTATION = "required_annotation";
     public static final String AUTO_WIRE_ANNOTATION = "auto_wired_annotation";
+    public static final String PRIMARY_AUTO_WIRE_ANNOTATION = "primary_auto_wired_annotation";
+    public static final String QUALIFIER_AUTO_WIRE_ANNOTATION = "qualifier_auto_wired_annotation";
 
 
     public ConceptMapping() {
@@ -76,6 +78,10 @@ public class ConceptMapping {
                 "definitions/annotation-config/required-annotation-definition.xml");
         definitions.put(AUTO_WIRE_ANNOTATION,
                 "definitions/annotation-config/auto-wire-annotation-definition.xml");
+        definitions.put(PRIMARY_AUTO_WIRE_ANNOTATION,
+                "definitions/annotation-config/primary-annotation-definition.xml");
+        definitions.put(QUALIFIER_AUTO_WIRE_ANNOTATION,
+                "definitions/annotation-config/qualifier-annotation-definition.xml");
 
     }
 

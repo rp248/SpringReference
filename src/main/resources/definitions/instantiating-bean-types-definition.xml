@@ -9,7 +9,7 @@
     <!--2. calling bean static factory method to instantiate; Ioc container will call
     createXmlOrganisation() to create the bean-->
     <bean id="xmlOrganisation" class="com.spring.ioc.SpringIoc.xmlconfig.beans.XmlOrganisation"
-          factory-method="createXmlOrganisation"/>
+          factory-method="createXmlOrganisation" />
 
     <!--This Service locator can be used to create n number of bean objects.
      One instance factory method per bean-->

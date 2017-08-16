@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config></context:annotation-config>
+
+    <bean id="javaLanguage" class="com.spring.ioc.SpringIoc.annotationconfig.beans.JavaLanguage"
+          primary="true"/>
+    <bean id="kotlinLanguage" class="com.spring.ioc.SpringIoc.annotationconfig.beans.KotlinLanguage"/>
+    <bean id="pythonLanguage" class="com.spring.ioc.SpringIoc.annotationconfig.beans.PythonLanguage"/>
+
+    <bean class="com.spring.ioc.SpringIoc.annotationconfig.beans.AndroidNewLanguage"/>
+
+</beans>
+
+<!--
+Example:
+We want to save data into two databases; one Mysql and second is MongoDB.
+We have an interface called DataResource.
+We have two concrete impl for DataResource; one for Mysql and second for MongoDB
+MysqlDataResource.Java, MongoDataResource.Java.
+We want to inject these concrete impl into a DataService.saveData(); which saves the data in
+two data resources
+
+classDataService{
+  @Autowire
+  private DataResource mysql;
+  @Autowire
+  private DataResource mongo;
+  public void saveData(String data) {
+    mysql.save(data);
+    mongo.save(data)
+  }
+}
+
+If we use primary attribute for mysql concrete impl bean in xml file then Spring IoC container
+will inject mysql implementation instance for both mongo and mysql properties. To overcome above
+problem we can use @qualifier along with @Autowire annotation.
+
+  @Autowire
+  @Qualifier("name of the bean qualifer or identifier")
+  private DataResource mysql;
+
+  @Autowire
+  @Qualifier("name of the bean qualifer or identifier")
+  private DataResource mongo;
+
+Spring reference:
+The @Qualifier annotation can also be specified on individual constructor arguments or method parameters
+
+-->
