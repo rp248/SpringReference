@@ -6,6 +6,7 @@ import com.spring.ioc.SpringIoc.concepts.ioc.aware.interfaces.ApplicationAwareBe
 import com.spring.ioc.SpringIoc.concepts.ioc.aware.interfaces.BeanAwareBeanDefinition;
 import com.spring.ioc.SpringIoc.concepts.ioc.bean.customization.*;
 import com.spring.ioc.SpringIoc.concepts.ioc.bean.inheritance.BeanInheritanceDefinition;
+import com.spring.ioc.SpringIoc.concepts.ioc.classpathscanning.AutoDetectAndRegisterBeans;
 import com.spring.ioc.SpringIoc.concepts.ioc.lifecyle.StartStopCallbacksDefinition;
 
 public class ConceptFactory {
@@ -76,7 +77,8 @@ public class ConceptFactory {
              concept = new CustomQualifierAnnotation(definitionPath);
          else if (ConceptMapping.RESOURCE_ANNOTATION.equals(conceptName))
              concept = new ResourceAnnotation(definitionPath);
-
+         else if (ConceptMapping.CP_AUTO_DETECTING_REGISTERING_BEANS.equals(conceptName))
+             concept = new AutoDetectAndRegisterBeans(definitionPath);
          return concept;
     }
 }

@@ -36,6 +36,8 @@ public class ConceptMapping {
     public static final String CUSTOM_QUALIFIER_ANNOTATION = "custom_qualifier_annotation";
     public static final String RESOURCE_ANNOTATION = "resource_annotation";
 
+    public static final String CP_AUTO_DETECTING_REGISTERING_BEANS = "classpath_scanning";
+
 
     public ConceptMapping() {
         loadConceptsMappings();
@@ -88,6 +90,10 @@ public class ConceptMapping {
                 "definitions/annotation-config/custom-qualifier-annotation-definition.xml");
         definitions.put(RESOURCE_ANNOTATION,
                 "definitions/annotation-config/resource-annotation-definition.xml");
+
+        definitions.put(CP_AUTO_DETECTING_REGISTERING_BEANS,
+                "definitions/classpath-scanning/auto-detecting-registering-beans-definition.xml");
+
 
     }
 
