@@ -1,22 +1,18 @@
-package com.spring.ioc.SpringIoc.xmlconfig.beans;
+package com.spring.ioc.SpringIoc.classpathscanning.beans;
 
-public class XmlAddress {
+public class NonSpringComponentAddress {
 
-    private int Id;
+    private int id;
     private String line1;
     private String line2;
     private String line3;
 
-    public XmlAddress() {
-        System.out.println("XmlAddress Constructor invoked");
-    }
-
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getLine1() {

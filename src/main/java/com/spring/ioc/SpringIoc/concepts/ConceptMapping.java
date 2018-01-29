@@ -37,6 +37,7 @@ public class ConceptMapping {
     public static final String RESOURCE_ANNOTATION = "resource_annotation";
 
     public static final String CP_AUTO_DETECTING_REGISTERING_BEANS = "classpath_scanning";
+    public static final String CP_DEFINE_BEAN_DEFINITIONS_IN_COMPONENT_BEANS = "define_bean_definitions_in_component";
 
 
     public ConceptMapping() {
@@ -93,6 +94,8 @@ public class ConceptMapping {
 
         definitions.put(CP_AUTO_DETECTING_REGISTERING_BEANS,
                 "definitions/classpath-scanning/auto-detecting-registering-beans-definition.xml");
+        definitions.put(CP_DEFINE_BEAN_DEFINITIONS_IN_COMPONENT_BEANS,
+                "definitions/classpath-scanning/define-bean-metadata-in-component.xml");
 
 
     }

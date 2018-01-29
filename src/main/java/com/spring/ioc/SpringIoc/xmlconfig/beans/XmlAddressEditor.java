@@ -1,7 +1,5 @@
 package com.spring.ioc.SpringIoc.xmlconfig.beans;
 
-import org.springframework.beans.factory.annotation.Required;
-
 public class XmlAddressEditor {
     private XmlAddress xmlAddress;
     private String line1;

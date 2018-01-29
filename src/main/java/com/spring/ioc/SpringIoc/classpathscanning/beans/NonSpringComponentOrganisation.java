@@ -1,13 +1,9 @@
-package com.spring.ioc.SpringIoc.xmlconfig.beans;
+package com.spring.ioc.SpringIoc.classpathscanning.beans;
 
-public class XmlEmployeePrototype {
+public class NonSpringComponentOrganisation {
 
     private int id;
     private String name;
-
-    public XmlEmployeePrototype() {
-        System.out.println("XmlEmployeePrototype constructor invoked");
-    }
 
     public int getId() {
         return id;

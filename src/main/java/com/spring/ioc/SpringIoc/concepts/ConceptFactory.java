@@ -7,6 +7,7 @@ import com.spring.ioc.SpringIoc.concepts.ioc.aware.interfaces.BeanAwareBeanDefin
 import com.spring.ioc.SpringIoc.concepts.ioc.bean.customization.*;
 import com.spring.ioc.SpringIoc.concepts.ioc.bean.inheritance.BeanInheritanceDefinition;
 import com.spring.ioc.SpringIoc.concepts.ioc.classpathscanning.AutoDetectAndRegisterBeans;
+import com.spring.ioc.SpringIoc.concepts.ioc.classpathscanning.DefineBeanDefinitionsInComponent;
 import com.spring.ioc.SpringIoc.concepts.ioc.lifecyle.StartStopCallbacksDefinition;
 
 public class ConceptFactory {
@@ -79,6 +80,8 @@ public class ConceptFactory {
              concept = new ResourceAnnotation(definitionPath);
          else if (ConceptMapping.CP_AUTO_DETECTING_REGISTERING_BEANS.equals(conceptName))
              concept = new AutoDetectAndRegisterBeans(definitionPath);
+         else if (ConceptMapping.CP_DEFINE_BEAN_DEFINITIONS_IN_COMPONENT_BEANS.equals(conceptName))
+             concept = new DefineBeanDefinitionsInComponent(definitionPath);
          return concept;
     }
 }
